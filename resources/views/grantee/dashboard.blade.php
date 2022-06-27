@@ -119,7 +119,7 @@
                         <div class="card-body bg-warning">
                             <div class="card-subtitle"><i class="bi bi-alarm"></i> Rilis : {{ $item->updated_at }} <span>oleh {{ $item->user->name }}</span></div>
                             <p class="h5">{{ $item->title }}</p>
-                            <div class="card-text">{{ $item->content }}</div>
+                            <div class="card-text">{!! $item->content !!}</div>
                         </div>
                     </div>
                 </div>

@@ -20,6 +20,8 @@
     <!-- LINEARICONS -->
     <link rel="stylesheet" href="{{ asset('fonts/linearicons/style.css') }}">
 
+    {{-- TinyMCE Textarea --}}
+    <script src="https://cdn.tiny.cloud/1/5loyy67bxuvii8e1tuaml2l2p054mvbwptkjnw8hfjtm51wl/tinymce/6/tinymce.min.js" referrerpolicy="origin"></script>
 
     <!-- MATERIAL DESIGN ICONIC FONT -->
     <link rel="stylesheet" href="{{ asset('fonts/material-design-iconic-font/css/material-design-iconic-font.min.css') }}">
@@ -44,6 +46,14 @@
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.6.1/dist/js/bootstrap.bundle.min.js"
         integrity="sha384-fQybjgWLrvvRgtW6bFlB7jaZrFsaBXjsOMm/tB9LTS58ONXgqbR9W8oWht/amnpF"
         crossorigin="anonymous"></script>
+
+    <script>
+        tinymce.init({
+            selector: 'textarea',
+            plugins: 'advlist autolink lists link preview anchor',
+            toolbar_mode: 'floating',
+        });
+    </script>
 
     <script src="{{ asset('js/jquery-3.3.1.min.js') }}"></script>
 

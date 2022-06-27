@@ -8,7 +8,7 @@
                 <div class="carousel-caption text-left">
                     <p class="h6 bg-warning rounded-lg p-1"><i class="bi bi-calendar3"></i> {{ $item->created_at->format('l, j F Y h:i:s A') }}</p>
                     <h3>{{ $item->title }}</h3>
-                    <p class="h5">{{ $item->content }}</p>
+                    <p class="h5">{!! $item->content !!}</p>
                 </div>
             </div>
             @endforeach
