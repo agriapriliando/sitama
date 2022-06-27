@@ -108,7 +108,7 @@ class UserController extends Controller
 
         if ($request->defaultpass == 1) {
             $password = bcrypt($request->username);
-        } elseif ($request->defaultpass == null) {
+        } elseif ($request->defaultpass == null && $request->password == null) {
             $password = $user->password;
         } else {
             $password = bcrypt($request->password);
