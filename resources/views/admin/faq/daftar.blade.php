@@ -51,6 +51,7 @@
                     <tr>
                         <th>No</th>
                         <th>Pertanyaan</th>
+                        <th>Jawaban</th>
                         <th>Kelola</th>
                     </tr>
                 </thead>
@@ -58,11 +59,10 @@
                     @foreach ($faqs as $item)
                     <tr>
                         <td>{{ $loop->iteration }}</td>
-                        <td>Ask : {{ $item->question }}
-                            <span class="badge badge-warning">updated {{ $item->updated_at }}</span><br>
-                            Ans : {{ $item->answer }}
-                    
+                        <td>Ask : {{ $item->question }}<br>
+                            <span class="badge badge-warning">updated {{ $item->updated_at }}</span><br>                  
                         </td>
+                        <td>{{ $item->answer }}</td>
                         <td>
                             <a href="{{ url('admin/faqs/'.$item->id.'/edit') }}"
                                 class="d-inline btn btn-warning btn-sm mx-1">
