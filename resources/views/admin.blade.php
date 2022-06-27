@@ -27,14 +27,13 @@
                         <th>Nama</th>
                         <th>Prodi</th>
                         <th>Beasiswa</th>
-                        <th>Status</th>
                         <th>Kelola</th>
                     </tr>
                 </thead>
                 <tbody>
                     @foreach ($students as $item)
                     <tr>
-                        <td>{{ $loop->iteration }}</td>
+                        <td class="text-center">{{ $loop->iteration }}</td>
                         <td>
                             {{-- cek jika nama mahasiswa tidak sama dengan nama pemilik rekening --}}
                             @if ($item->user->name != $item->nama_rekening)
@@ -47,8 +46,7 @@
                              @endif
                         </td>
                         <td>{{ $item->program->name }}</td>
-                        <td>{{ $item->scholarship->name }}<br><span class="badge badge-warning">Rp{{ number_format($item->scholarship->nominal,0,",",".") }}</span></td>
-                        <td>{{ $item->stat->name }}</td>
+                        <td>{{ $item->scholarship->name }}<br><span class="badge badge-warning">Rp{{ number_format($item->scholarship->nominal,0,",",".") }}</span> <span class="badge badge-success">{{ $item->stat->name }}</span></td>
                         <td>
                             <a class="d-inline m-1 btn btn-warning btn-sm" href="{{ url('admin/students/'.$item->id.'/edit') }}">
                                 <i class="bi bi-pencil-fill"></i>
