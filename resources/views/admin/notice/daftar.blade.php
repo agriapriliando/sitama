@@ -28,7 +28,7 @@
                     <div class="col-md-6 col-11">
                         <div class="form-group">
                             <label for="">Isi Pengumuman</label>
-                            <textarea name="content" cols="5" class="form-control @error('content') is-invalid @enderror"></textarea>
+                            <textarea id="textarea" name="content" cols="5" class="form-control @error('content') is-invalid @enderror"></textarea>
                             @error('content')
                             <div class="alert alert-danger">{{ $message }}</div>
                             @enderror

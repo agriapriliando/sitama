@@ -25,7 +25,7 @@
                     <div class="col-md-6 col-11">
                         <div class="form-group">
                             <label for="">Isi</label>
-                            <textarea class="form-control @error('content') is-invalid @enderror" name="content" cols="6">{{ old('content',$notice->content) }}</textarea>
+                            <textarea id="textarea" class="form-control @error('content') is-invalid @enderror" name="content" cols="6">{{ old('content',$notice->content) }}</textarea>
                             @error('content')
                             <div class="alert alert-danger">{{ $message }}</div>
                             @enderror

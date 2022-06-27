@@ -49,7 +49,7 @@
 
     <script>
         tinymce.init({
-            selector: 'textarea',
+            selector: '#textarea',
             plugins: 'advlist autolink lists link preview anchor',
             toolbar_mode: 'floating',
         });
