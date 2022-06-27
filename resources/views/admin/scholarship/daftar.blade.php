@@ -67,7 +67,7 @@
                         <td>{{ $loop->iteration }}</td>
                         <td>{{ $item->name }} <span class="badge badge-warning">updated {{ $item->updated_at }}</span>
                         </td>
-                        <td>Rp {{ $item->nominal }}</td>
+                        <td>Rp{{ number_format($item->scholarship->nominal,0,",",".") }}</td>
                         <td>
                             <a href="{{ url('admin/scholarships/'.$item->id.'/edit') }}"
                                 class="d-inline btn btn-warning btn-sm mx-1">
