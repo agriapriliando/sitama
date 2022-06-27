@@ -93,7 +93,7 @@
                         <img src="{{ asset('images/slide_(1).jpg') }}" class="d-block w-100" alt="..." style="object-fit: cover !important;">
                         <div class="carousel-caption d-md-block text-left">
                             <p class="h1 d-none d-md-block">Ayo Daftar Beasiswa sekarang juga</p>
-                            <div class="row">
+                            <div class="row d-none d-md-block">
                                 <a href="" class="btn btn-warning mr-2" data-toggle="modal"
                                 data-target="#pendaftaran">
                                     <p class="h5">Pendaftaran</p>
@@ -109,7 +109,7 @@
                         <img src="{{ asset('images/slide_(2).jpg') }}" class="d-block w-100" alt="..." style="object-fit: cover !important;">
                         <div class="carousel-caption d-md-block text-left">
                             <p class="h1 d-none d-md-block">Ayo Daftar Beasiswa sekarang juga</p>
-                            <div class="row">
+                            <div class="row d-none d-md-block">
                                 <a href="" class="btn btn-warning mr-2" data-toggle="modal"
                                 data-target="#pendaftaran">
                                     <p class="h5">Pendaftaran</p>
@@ -125,7 +125,7 @@
                         <img src="{{ asset('images/slide_(3).jpg') }}" class="d-block w-100" alt="..." style="object-fit: cover !important;">
                         <div class="carousel-caption d-md-block text-left">
                             <p class="h1 d-none d-md-block">Ayo Daftar Beasiswa sekarang juga</p>
-                            <div class="row">
+                            <div class="row d-none d-md-block">
                                 <a href="" class="btn btn-warning mr-2" data-toggle="modal"
                                 data-target="#pendaftaran">
                                     <p class="h5">Pendaftaran</p>
