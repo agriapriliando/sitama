@@ -132,4 +132,10 @@ input, textarea, select {
 .btn-purple:hover {
   color: #ebebeb;
 }
+
+@media (max-width: 700px) {
+  .faqfont {
+    font-size: 18px;
+  }
+}
 /*# sourceMappingURL=style.css.map */

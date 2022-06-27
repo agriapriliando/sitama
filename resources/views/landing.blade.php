@@ -38,7 +38,7 @@
 </style>
 
 <body class="">
-    <div class="">
+    <div class="" style="border-bottom: 4px solid #8000ff !important;">
         <div class="container">
             <!-- start navbar -->
             <nav class="navbar navbar-expand-lg navbar-light">
@@ -153,7 +153,12 @@
         </div>
     </div>
     {{-- faq  --}}
-    <div class="container mt-1">
+    <div class="text-light body p-5">
+        <p class="h3">Selamat Datang</p>
+        <p class="lead">Ini adalah Website Program Beasiswa bagi Mahasiswa IAKN Palangka Raya</p>
+        <p>IAKN Palangka Raya berkomitmen untuk terus menjaga keberlangsungan Program Beasiswa bagi Mahasiswa. Hal ini untuk mewujudkan cita-cita bersama yaitu Sumber daya Manusial Unggul, Indonesia Maju.</p>
+    </div>
+    <div class="container-fluid p-3">
         <div class="row">
             <div class="col-12">
                 <x-frontfaq></x-frontfaq>
@@ -162,11 +167,11 @@
     </div>
     {{-- end faq  --}}
 
-    <div class="py-3">
+    <div class="py-3 body">
         <div class="container-fluid">
             <div class="row">
                 <div class="col">
-                    <p class="text-dark text-center">SITAMA IAKN PALANGKA RAYA @2022</p>
+                    <p class="text-light text-center">SITAMA IAKN PALANGKA RAYA @ {{ date("Y") }} <a class="bg-warning rounded-lg text-dark p-1" target="_blank" href="https://tipd.iaknpky.ac.id/">By UPT TIPD</a></p>
                 </div>
             </div>
         </div>
@@ -184,10 +189,13 @@
                         <span aria-hidden="true">&times;</span>
                     </button>
                 </div>
-                <div class="modal-body">
+                <div class="modal-body text-dark">
                     {!! $pendaftaran->content !!}
                 </div>
                 <div class="modal-footer">
+                    <a href="{{ url('login') }}" class="buttoncustom btn" data-text="Login">
+                        <span class="text-warning">LOGIN</span>
+                    </a>
                     <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
                 </div>
             </div>
@@ -208,6 +216,9 @@
                     {!! $persyaratan->content !!}
                 </div>
                 <div class="modal-footer">
+                    <a href="{{ url('login') }}" class="buttoncustom btn" data-text="Login">
+                        <span class="text-warning">LOGIN</span>
+                    </a>
                     <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
                 </div>
             </div>
@@ -228,6 +239,9 @@
                     {!! $narahubung->content !!}
                 </div>
                 <div class="modal-footer">
+                    <a href="{{ url('login') }}" class="buttoncustom btn" data-text="Login">
+                        <span class="text-warning">LOGIN</span>
+                    </a>
                     <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
                 </div>
             </div>
