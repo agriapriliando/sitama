@@ -45,7 +45,7 @@
     </form>
     <div class="row p-3 bg-light rounded-lg">
         <div class="col">
-            <table id="example" class="table table-striped table-bordered display" style="width:100%">
+            <table id="example" class="table-striped table-bordered display" style="width:100%">
                 <thead>
                     <tr>
                         <th>No</th>

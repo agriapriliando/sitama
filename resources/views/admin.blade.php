@@ -20,7 +20,7 @@
                     </a>
                 </div>
             </div>
-            <table id="example" class="table table-striped table-bordered display nowrap" style="width:100%">
+            <table id="example" class="table-striped table-bordered display nowrap" style="width:100%">
                 <thead>
                     <tr>
                         <th>No</th>
