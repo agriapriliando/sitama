@@ -97,7 +97,7 @@ class StudentController extends Controller
         }
         if ($request->password == null) {
             $password = bcrypt($request->username);
-        } elseif ($request->defaultpass == 1) {
+        } elseif ($request->defaultpass == 1 && $request->password == null) {
             $password = bcrypt($request->username);
         } else {
             $password = bcrypt($request->password);
@@ -232,7 +232,7 @@ class StudentController extends Controller
         }
         if ($request->password == null) {
             $password = $student->user->password;
-        } elseif ($request->defaultpass == 1) {
+        } elseif ($request->defaultpass == 1 && $request->password == null) {
             $password = bcrypt($request->username);
         } else {
             $password = bcrypt($request->password);
