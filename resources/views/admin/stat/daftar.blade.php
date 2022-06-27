@@ -46,7 +46,7 @@
     </form>
     <div class="row p-3 bg-light rounded-lg">
         <div class="col">
-            <table id="example" class="table table-striped table-bordered display nowrap" style="width:100%">
+            <table id="example" class="table-striped table-bordered display" style="width:100%">
                 <thead>
                     <tr>
                         <th>No</th>
@@ -60,7 +60,7 @@
                     <tr>
                         <td>{{ $loop->iteration }}</td>
                         <td>{{ $item->name }} <span class="badge badge-warning">updated {{ $item->updated_at }}</span></td>
-                        <td>{{ $item->note }}</td>
+                        <td>{{ Str::limit($item->note, 25) }}</td>
                         <td>
                             <a href="{{ url('admin/stats/'.$item->id.'/edit') }}"
                                 class="d-inline btn btn-warning btn-sm mx-1">

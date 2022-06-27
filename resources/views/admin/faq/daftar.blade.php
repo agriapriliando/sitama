@@ -46,7 +46,7 @@
     </form>
     <div class="row p-3 bg-light rounded-lg">
         <div class="col">
-            <table id="example" class="table-striped table-bordered display nowrap" style="width:100%">
+            <table id="example" class="table-striped table-bordered display" style="width:100%">
                 <thead>
                     <tr>
                         <th>No</th>
@@ -59,10 +59,10 @@
                     @foreach ($faqs as $item)
                     <tr>
                         <td>{{ $loop->iteration }}</td>
-                        <td>Ask : {{ $item->question }}<br>
+                        <td>{{ $item->question }}<br>
                             <span class="badge badge-warning">updated {{ $item->updated_at }}</span><br>                  
                         </td>
-                        <td>{{ $item->answer }}</td>
+                        <td>{{ Str::limit($item->answer, 30) }}</td>
                         <td>
                             <a href="{{ url('admin/faqs/'.$item->id.'/edit') }}"
                                 class="d-inline btn btn-warning btn-sm mx-1">

@@ -136,7 +136,7 @@
     {{-- daftar akun --}}
     <div class="row p-3 bg-light rounded-lg">
         <div class="col">
-            <table id="example" class="table table-striped table-bordered display nowrap" style="width:100%">
+            <table id="example" class="table-striped table-bordered display" style="width:100%">
                 <thead>
                     <tr>
                         <th>No</th>
@@ -149,7 +149,7 @@
                     @foreach ($users as $item)
                     <tr>
                         <td>{{ $loop->iteration }}</td>
-                        <td>{{ $item->name }} <span class="badge badge-warning">username : {{ $item->username }}</span></td>
+                        <td>{{ $item->name }} <br><span class="badge badge-warning">username : {{ $item->username }}</span></td>
                         <td>{{ $item->email ? $item->email : "Email belum diisi" }}</td>
                         <td>
                             <a href="{{ url('admin/users/'.$item->id.'/edit') }}"

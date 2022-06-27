@@ -52,7 +52,7 @@
     </form>
     <div class="row p-3 bg-light rounded-lg">
         <div class="col">
-            <table id="example" class="table table-striped table-bordered display nowrap" style="width:100%">
+            <table id="example" class="table-striped table-bordered display" style="width:100%">
                 <thead>
                     <tr>
                         <th>No</th>
@@ -65,7 +65,7 @@
                     @foreach ($scholarships as $item)
                     <tr>
                         <td>{{ $loop->iteration }}</td>
-                        <td>{{ $item->name }} <span class="badge badge-warning">updated {{ $item->updated_at }}</span>
+                        <td>{{ $item->name }}<br><span class="badge badge-warning">updated {{ $item->updated_at }}</span>
                         </td>
                         <td>Rp{{ number_format($item->nominal,0,",",".") }}</td>
                         <td>

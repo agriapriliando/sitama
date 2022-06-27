@@ -59,7 +59,7 @@
                     <tr>
                         <td>{{ $loop->iteration }}</td>
                         <td>{{ $item->title }} <br><span class="badge badge-warning">updated {{ $item->updated_at }}</span></td>
-                        <td>{{ $item->content }}</td>
+                        <td>{{ Str::limit($item->content, 20, '...') }}</td>
                         <td>
                             <a href="{{ url('admin/notices/'.$item->id.'/edit') }}"
                                 class="d-md-inline btn btn-warning btn-sm m-1">
