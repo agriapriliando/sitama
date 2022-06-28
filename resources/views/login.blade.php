@@ -45,7 +45,7 @@
             <div class="row p-4">
                 <div class="col-md-6 col">
                     <div class="text-center">
-                        <img src="{{ asset('images/logo_iaknpky.png') }}" class="img-fluid" alt="logo_iaknpky"
+                        <img src="{{ asset('images/logo.png') }}" class="img-fluid" alt="logo_iaknpky"
                             width="120px">
                     </div>
                     <p class="h3 text-dark text-center">Login</p>
@@ -77,7 +77,7 @@
                     <button type="submit" data-text="Login" class="buttoncustom btn btn-block mb-2">
                         <span>Login</span>
                     </button>
-                    <a href="{{ url('') }}" class="buttoncustom btn" data-text="Login">
+                    <a href="{{ url('') }}" class="buttoncustom btn" data-text="Beranda">
                         <span class="text-light">Beranda</span>
                     </a>
                     <label class="mt-2" style="display: none;">
@@ -93,7 +93,7 @@
         {{-- FAQ front login --}}
         <x-frontfaq></x-frontfaq>
         {{-- FAQ front login --}}
-        <p>SITAMA @2022</p>
+        <p class="text-center pt-2 text-light">SITAMA @ {{ date("Y") }}</p>
     </div>
 
     <!-- Option 1: jQuery and Bootstrap Bundle (includes Popper) -->

@@ -171,7 +171,7 @@
         <div class="container-fluid">
             <div class="row">
                 <div class="col">
-                    <p class="text-light text-center">SITAMA IAKN PALANGKA RAYA @ {{ date("Y") }} <a class="bg-warning rounded-lg text-dark p-1" target="_blank" href="https://tipd.iaknpky.ac.id/">By UPT TIPD</a></p>
+                    <p class="text-light text-center">SITAMA IAKN PALANGKA RAYA @ {{ date("Y") }} <a class="bg-warning rounded-lg text-dark p-1" target="_blank" href="https://sitama.iaknpky.ac.id/">By FKIPK</a></p>
                 </div>
             </div>
         </div>
