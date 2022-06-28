@@ -10,7 +10,7 @@
             <div class="col">
                 <div class="row">
                     <div class="col mb-2">
-                        <p class="h3 text-dark">Tambah Mahasiswa Penerima Beasiswa</p>
+                        <p class="h4 text-dark" style="font-weight: bold">Tambah Mahasiswa Penerima Beasiswa</p>
                         
                     </div>
                 </div>
@@ -20,14 +20,14 @@
                             <div class="card">
                                 <div class="card-header" id="headingOne">
                                     <button class="rounded-lg collapsed d-inline buttoncustom mb-2"
-                                        data-text="Kelola Akun" type="button" data-toggle="collapse"
+                                        data-text="Akun" type="button" data-toggle="collapse"
                                         data-target="#collapseTwo" aria-expanded="false" aria-controls="collapseTwo">
-                                        <span>Kelola Akun</span>
+                                        <span>Akun</span>
                                     </button>
                                     <button class="rounded-lg d-inline buttoncustom"
-                                        data-text="Kelola Data Mahasiswa" type="button" data-toggle="collapse"
+                                        data-text="Data Mahasiswa" type="button" data-toggle="collapse"
                                         data-target="#collapseOne" aria-expanded="false" aria-controls="collapseOne">
-                                        <span>Kelola Data Mahasiswa</span>
+                                        <span>Data Mahasiswa</span>
                                     </button>
                                 </div>
                                 <div id="collapseTwo" class="collapse show" aria-labelledby="headingTwo"

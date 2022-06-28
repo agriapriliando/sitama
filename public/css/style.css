@@ -137,5 +137,9 @@ input, textarea, select {
   .faqfont {
     font-size: 18px;
   }
+  .judul-daftar-mahasiswa {
+    font-size: 18px !important;
+    font-weight: bold;
+  }
 }
 /*# sourceMappingURL=style.css.map */

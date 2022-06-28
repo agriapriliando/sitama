@@ -64,7 +64,7 @@ class GranteeController extends Controller
         if ($count == 5) {
             $status_lengkap = "Terima Kasih, Anda Sudah Melengkapi Data secara Lengkap";
         } else {
-            $status_lengkap = "Data Anda Belum Lengkap !!!!";
+            $status_lengkap = "Data Anda Belum Lengkap !!!";
         }
         
         return view('grantee.edit', compact('akun','student', 'status_lengkap', 'count'));

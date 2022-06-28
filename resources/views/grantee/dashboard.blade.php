@@ -6,7 +6,7 @@
         <div class="col-12 p-2 rounded-lg">
             <p class="text-dark text-center">Hai <b>{{ session()->get('name') }} - Anda adalah Penerima Beasiswa</b> <a href="{{ url('logout') }}" class="badge badge-danger">Logout</a></p>
             @if ($count != 5)
-            <p class="bg-danger text-light p-2 rounded-lg text-center">Anda Belum Perbaharui Data klik Tombol
+            <p class="bg-danger text-light p-2 rounded-lg text-center">Anda Belum Perbaharui Data klik Tombol<br>
                 <a class="text-light" style="text-decoration: underline;" href="{{ url('beasiswa/update') }}">Perbaharui Data</a>
             </p>
             @endif
@@ -16,7 +16,7 @@
                 <a href="{{ url('beasiswa/update') }}" data-text="Perbaharui Data" class="btn my-2 my-sm-0 buttoncustom"><span><i
                     class="bi bi-person-circle"></i> Perbaharui Data</span></a>
             </div>
-            <p class="h4 text-dark pt-3">Kilas Indeks Prestasi Anda <span class="badge badge-success">IPK = {{ $student->ipk }}</span></p>
+            <p class="h4 text-dark pt-3">Kilas Indeks Prestasi Anda <span class="badge {{ $student->ipk > 2.74 ? 'badge-success' : 'badge-danger' }}">IPK = {{ $student->ipk }}</span></p>
             </p>
             <table class="table table-bordered">
                 <thead>
@@ -132,7 +132,7 @@
     <div class="row p-3 bg-light rounded-lg">
         <div class="col">
             <p class="h3 text-dark">Daftar Mahasiswa Penerima Beasiswa</p>
-            <table id="example" class="table table-striped table-bordered display nowrap" style="width:100%">
+            <table id="example" class="table-striped table-bordered display nowrap" style="width:100%">
                 <thead>
                     <tr>
                         <th>No</th>

@@ -22,10 +22,10 @@
                             <div class="card">
                                 <div class="card-header" id="headingOne">
                                     <button class="rounded-lg d-inline mb-2 buttoncustom"
-                                        data-text="Update Data Mahasiswa" type="button" data-toggle="collapse"
+                                        data-text="Data Anda" type="button" data-toggle="collapse"
                                         data-target="#collapseOne" aria-expanded="false"
                                         aria-controls="collapseOne">
-                                        <span>Update Data Mahasiswa</span>
+                                        <span>Data Anda</span>
                                     </button>
                                     <button class="rounded-lg collapsed d-inline mb-2 buttoncustom"
                                         data-text="Upload Berkas" type="button" data-toggle="collapse"
@@ -34,10 +34,10 @@
                                         <span>Upload Berkas</span>
                                     </button>
                                     <button class="rounded-lg collapsed d-inline buttoncustom"
-                                        data-text="Kelola Akun" type="button" data-toggle="collapse"
+                                        data-text="Akun Anda" type="button" data-toggle="collapse"
                                         data-target="#collapseThree" aria-expanded="false"
                                         aria-controls="collapseThree">
-                                        <span>Kelola Akun</span>
+                                        <span>Akun Anda</span>
                                     </button>
                                 </div>
                                 <div id="collapseOne" class="collapse show" aria-labelledby="headingOne"
@@ -355,8 +355,8 @@
                 <label class="mt-2 text-dark">
                     Pastikan data telah terinput dengan benar. Segala kesalahan data yang terinput menjadi tanggung jawab anda.
                 </label>
-                <button class="buttoncustom" data-text="Perbaharui Data">
-                    <span>Perbaharui Data</span>
+                <button class="buttoncustom" data-text="Submit Data">
+                    <span>Submit Data</span>
                 </button>
             </div>
         </div>

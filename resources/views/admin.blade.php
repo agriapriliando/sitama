@@ -7,14 +7,14 @@
         <div class="col">
             <div class="row mb-2">
                 <div class="col-12">
-                    <p class="h3 text-dark">Daftar Mahasiswa Seluruh Penerima Beasiswa</p>
+                    <p class="h3 text-dark judul-daftar-mahasiswa">Daftar Mahasiswa Seluruh Penerima Beasiswa</p>
                     @if (session('status'))
                     <div id="alert-alert" class="alert alert-success">
                         {!! session('status') !!}
                     </div>
                     @endif
                 </div>
-                <div class="col-6">
+                <div class="col-md-6 col-12">
                     <a href="{{ url('admin/students/create') }}" data-text="Tambah" class="buttoncustom btn my-2 my-sm-0">
                         <span><i class="bi bi-plus"></i> Tambah</span>
                     </a>
