@@ -29,7 +29,7 @@
                     <div class="col-md-6 col-11">
                         <div class="form-group">
                             <label for="">Keterangan atau Penjelasan</label>
-                            <textarea name="answer" class="form-control @error('answer') is-invalid @enderror" cols="20"></textarea>
+                            <textarea id="textarea" name="answer" class="form-control @error('answer') is-invalid @enderror" cols="20"></textarea>
                             @error('answer')
                             <div class="alert alert-danger">{{ $message }}</div>
                             @enderror

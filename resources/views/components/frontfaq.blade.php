@@ -18,7 +18,7 @@
         <div id="collapse{{ $loop->iteration }}" class="collapse {{ $loop->iteration == 1 ? 'show' : ''}}" aria-labelledby="headingOne"
             data-parent="#accordionExample">
             <div class="card-body text-dark">
-                {{ $loop->iteration }}. {{ $item->answer }}
+                {{ $loop->iteration }}. {!! $item->answer !!}
             </div>
         </div>
     </div>
