@@ -27,6 +27,7 @@
                         <th>Nama</th>
                         <th>Prodi</th>
                         <th>Beasiswa</th>
+                        <th>Berkas</th>
                         <th>Kelola</th>
                     </tr>
                 </thead>
@@ -35,10 +36,6 @@
                     <tr>
                         <td class="text-center">{{ $loop->iteration }}</td>
                         <td>
-                            {{-- cek jika mahasiswa belum melengkapi data --}}
-                            @if ($item->nama_rekening == null || $item->no_hp == null || $item->alamat == null || $item->bank == null || $item->no_rekening == null || $item->berkas_one == null || $item->berkas_two == null)
-                            <span class="badge badge-danger">Data Belum Lengkap</span><br>
-                            @endif
                             {{ $item->user->name }}
                              <br>NIM. {{ $item->nim }}
                              @if (!empty($item->berkas_one))
@@ -50,6 +47,18 @@
                         </td>
                         <td>{{ $item->program->name }}</td>
                         <td>{{ $item->scholarship->name }}<br><span class="badge badge-warning">Rp{{ number_format($item->scholarship->nominal,0,",",".") }}</span> <span class="badge badge-success">{{ $item->stat->name }}</span></td>
+                        <td>
+                            {{-- cek jika mahasiswa belum melengkapi data --}}
+                            @if ($item->nama_rekening == null || $item->no_hp == null || $item->alamat == null || $item->bank == null || $item->no_rekening == null || $item->berkas_one == null || $item->berkas_two == null)
+                            <span class="badge badge-danger">Data Belum Lengkap</span><br>
+                            @endif
+                            @if (!empty($item->berkas_one))
+                            <br><a href="{{ url('admin/berkas_one/'.$item->berkas_one) }}" class="badge badge-success"><i class="bi bi-filetype-pdf"></i> Unduh Rekening Koran</a></span>
+                            @endif
+                            @if (!empty($item->berkas_two))
+                            <br><a href="{{ url('admin/berkas_two/'.$item->berkas_two) }}" class="badge badge-success"><i class="bi bi-filetype-pdf"></i> Unduh Buku Rekening</a></span>
+                            @endif
+                        </td>
                         <td>
                             <a class="d-inline m-1 btn btn-warning btn-sm" href="{{ url('admin/students/'.$item->id.'/edit') }}">
                                 <i class="bi bi-pencil-fill"></i>
