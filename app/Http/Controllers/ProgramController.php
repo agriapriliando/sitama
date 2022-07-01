@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Models\Program;
+use App\Models\Student;
 use Illuminate\Http\Request;
 
 class ProgramController extends Controller
@@ -14,8 +15,9 @@ class ProgramController extends Controller
      */
     public function index()
     {
+        $students = Student::pluck('program_id')->toArray();
         $programs = Program::all();
-        return view('admin.program.daftar', compact('programs'));
+        return view('admin.program.daftar', compact('programs', 'students'));
     }
 
     /**

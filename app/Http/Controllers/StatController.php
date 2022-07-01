@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Models\Stat;
+use App\Models\Student;
 use Illuminate\Http\Request;
 
 class StatController extends Controller
@@ -16,6 +17,7 @@ class StatController extends Controller
     {
         return view('admin.stat.daftar', [
             'stats' => Stat::all(),
+            'students' => Student::pluck('stat_id')->toArray(),
         ]);
     }
 

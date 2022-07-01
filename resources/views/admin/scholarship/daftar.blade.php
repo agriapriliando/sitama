@@ -73,6 +73,7 @@
                                 class="d-inline btn btn-warning btn-sm mx-1">
                                 <i class="bi bi-pencil-fill"></i>
                             </a>
+                            @if (in_array($item->id,$students,true) == false)
                             <form class="d-inline" action="{{ url('admin/scholarships/'.$item->id) }}" method="POST">
                                 @method('DELETE')
                                 @csrf
@@ -80,19 +81,12 @@
                                     onclick="return confirm('Yakin ingin Hapus Data?')"><i
                                         class="bi bi-trash-fill"></i></button>
                             </form>
+                            @endif
                         </td>
                     </tr>
 
                     @endforeach
                 </tbody>
-                <tfoot>
-                    <tr>
-                        <th>No</th>
-                        <th>Program Studi</th>
-                        <th>Jenjang</th>
-                        <th>Kelola</th>
-                    </tr>
-                </tfoot>
             </table>
         </div>
     </div>

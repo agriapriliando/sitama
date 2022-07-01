@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Models\Scholarship;
+use App\Models\Student;
 use Illuminate\Http\Request;
 
 class ScholarshipController extends Controller
@@ -14,8 +15,9 @@ class ScholarshipController extends Controller
      */
     public function index()
     {
+        $students = Student::pluck('scholarship_id')->toArray();
         $scholarships = Scholarship::all();
-        return view('admin.scholarship.daftar', compact('scholarships'));
+        return view('admin.scholarship.daftar', compact('scholarships', 'students'));
 
     }
 

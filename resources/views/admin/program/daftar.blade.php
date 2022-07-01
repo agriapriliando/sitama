@@ -86,13 +86,15 @@
                                 class="d-inline btn btn-warning btn-sm mx-1">
                                 <i class="bi bi-pencil-fill"></i>
                             </a>
-                            <form class="d-inline" action="{{ url('admin/programs/'.$item->id) }}" method="POST">
-                                @method('DELETE')
-                                @csrf
-                                <button type="submit" class="btn btn-danger btn-sm"
-                                    onclick="return confirm('Yakin ingin Hapus Data?')"><i
-                                        class="bi bi-trash-fill"></i></button>
-                            </form>
+                            @if (in_array($item->id,$students,true) == false)
+                                <form class="d-inline" action="{{ url('admin/programs/'.$item->id) }}" method="POST">
+                                    @method('DELETE')
+                                    @csrf
+                                    <button type="submit" class="btn btn-danger btn-sm"
+                                        onclick="return confirm('Yakin ingin Hapus Data?')"><i
+                                            class="bi bi-trash-fill"></i></button>
+                                </form>
+                            @endif
                         </td>
                     </tr>
 
