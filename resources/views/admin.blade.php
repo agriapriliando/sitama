@@ -7,7 +7,7 @@
         <div class="col">
             <div class="row mb-2">
                 <div class="col-12">
-                    <p class="h3 text-dark judul-daftar-mahasiswa">Daftar Mahasiswa Seluruh Penerima Beasiswa</p>
+                    <p class="h3 text-dark judul-daftar-mahasiswa">Daftar Seluruh Mahasiswa Penerima Beasiswa</p>
                     @if (session('status'))
                     <div id="alert-alert" class="alert alert-success">
                         {!! session('status') !!}
@@ -35,9 +35,9 @@
                     <tr>
                         <td class="text-center">{{ $loop->iteration }}</td>
                         <td>
-                            {{-- cek jika nama mahasiswa tidak sama dengan nama pemilik rekening --}}
-                            @if ($item->user->name != $item->nama_rekening)
-                            <span class="badge badge-danger">Nama Rekening Tidak Sama</span><br>
+                            {{-- cek jika mahasiswa belum melengkapi data --}}
+                            @if ($item->nama_rekening == null || $item->no_hp == null || $item->alamat == null || $item->bank == null || $item->no_rekening == null || $item->berkas_one == null || $item->berkas_two == null)
+                            <span class="badge badge-danger">Data Belum Lengkap</span><br>
                             @endif
                             {{ $item->user->name }}
                              <br>NIM. {{ $item->nim }}

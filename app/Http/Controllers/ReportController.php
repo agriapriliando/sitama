@@ -162,7 +162,7 @@ class ReportController extends Controller
             $pdf = \PDF::loadView('admin.report.four', compact('students'))->setPaper('a4', 'landscape')->setWarnings(false);
             return $pdf->download('sitama'.date("dmyHi").'V4.pdf');
         } elseif ($report_version['report_version'] == "monitoring") {
-            $pdf = \PDF::loadView('admin.report.four', compact('students'))->setPaper('a4', 'landscape')->setWarnings(false);
+            $pdf = \PDF::loadView('admin.report.monitoring', compact('students'))->setPaper('a4', 'landscape')->setWarnings(false);
             return $pdf->download('sitama'.date("dmyHi").'monitoring.pdf');
             return view('admin.report.monitoring', compact('students'));
         }
