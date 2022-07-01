@@ -10,12 +10,16 @@ use ZipArchive;
 
 class DownloadController extends Controller
 {
-    public function index($rekkoran)
+    public function index($jenis_dok,$file)
     {
         // $student = Student::where('id', $student_id)->select('berkas_one')->get();
         // return $student;
         // return response()->file('rek_koran/'.$rekkoran);
-        return Storage::download('rek_koran/'.$rekkoran);
+        if ($jenis_dok == "berkas_one") {
+            return Storage::download('rek_koran/'.$file);
+        } elseif ($jenis_dok == "berkas_two") {
+            return Storage::download('rek_buku/'.$file);
+        }
     }
 
     // public function rekkoran()

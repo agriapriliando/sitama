@@ -232,6 +232,12 @@
                                                     <div class="alert alert-danger">{{ $message }}</div>
                                                     @enderror
                                                 </div>
+                                                <div class="form-group" style="display: none">
+                                                    <a target="_blank" href="{{ asset('images/'.$student->foto) }}">
+                                                        <img src="{{ asset('images/'.$student->foto) }}"
+                                                            style="max-width: 100px">
+                                                    </a>
+                                                </div>
                                                 <div class="form-group" style="display: none;">
                                                     <a target="_blank" href="{{ asset('images/profile_default.jpg') }}">
                                                         <img src="{{ asset('images/profile_default.jpg') }}"
@@ -365,7 +371,7 @@
                                                 <div class="form-group mb-3">
                                                     <label>Rekening Koran
                                                         @if ($student->berkas_one != null)
-                                                        <a target="_blank" href="{{ url('admin/file/'.$student->berkas_one) }}" class="badge badge-success">
+                                                        <br><a target="_blank" href="{{ url('admin/berkas_one/'.$student->berkas_one) }}" class="badge badge-success">
                                                             Berkas Tersedia | Download
                                                         </a>
                                                         @else
@@ -374,14 +380,19 @@
                                                         </a>
                                                         @endif
                                                     </label>
-                                                    {{-- <input name="berkas_one" type="file" class="border form-control-file @error('berkas_one') is-invalid @enderror">
-                                                    @error('berkas_one')
-                                                    <div id="alert-alert" class="alert alert-warning">{{ $message }}</div>
-                                                    @enderror --}}
                                                 </div>
-                                                <div class="form-group mb-3 d-none">
-                                                    <label>Pakta Integritas <a href="#" class="badge badge-success">Download Berkas</a></label>
-                                                    <input name="" type="file" class="border form-control-file">
+                                                <div class="form-group mb-3">
+                                                    <label>Buku Rekening
+                                                        @if ($student->berkas_two != null)
+                                                        <br><a target="_blank" href="{{ url('admin/berkas_two/'.$student->berkas_two) }}" class="badge badge-success">
+                                                            Berkas Tersedia | Download
+                                                        </a>
+                                                        @else
+                                                        <a href="#" class="badge badge-danger">
+                                                            Berkas Belum Diupload
+                                                        </a>
+                                                        @endif
+                                                    </label>
                                                 </div>
                                                 <div class="form-group mb-3 d-none">
                                                     <label>Rekening Koran <a href="#" class="badge badge-success">Download Berkas</a></label>

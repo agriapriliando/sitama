@@ -70,7 +70,7 @@ Route::middleware('role:adm')->group(function() {
     Route::put('admin/reports/unduh', [ReportController::class, 'unduhpdf']);
 
     // Download Controller
-    Route::get('admin/file/{rekkoran}', [DownloadController::class, 'index']);
+    Route::get('admin/{jenis_dok}/{file}', [DownloadController::class, 'index']);
     // Route::get('alldownload', [DownloadController::class, 'download']);
 });
 

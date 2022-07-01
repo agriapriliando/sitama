@@ -20,7 +20,7 @@
                     </a>
                 </div>
             </div>
-            <table id="example" class="table-striped table-bordered display nowrap" style="width:100%">
+            <table id="example" class="table-striped table-bordered display nowrap text-dark" style="width:100%">
                 <thead>
                     <tr>
                         <th>No</th>
@@ -42,7 +42,10 @@
                             {{ $item->user->name }}
                              <br>NIM. {{ $item->nim }}
                              @if (!empty($item->berkas_one))
-                             <br><a href="{{ url('admin/file/'.$item->berkas_one) }}" class="badge badge-success"><i class="bi bi-filetype-pdf"></i> Unduh Rekening Koran</a></span>
+                             <br><a href="{{ url('admin/berkas_one/'.$item->berkas_one) }}" class="badge badge-success"><i class="bi bi-filetype-pdf"></i> Unduh Rekening Koran</a></span>
+                             @endif
+                             @if (!empty($item->berkas_two))
+                             <br><a href="{{ url('admin/berkas_two/'.$item->berkas_two) }}" class="badge badge-success"><i class="bi bi-filetype-pdf"></i> Unduh Buku Rekening</a></span>
                              @endif
                         </td>
                         <td>{{ $item->program->name }}</td>
