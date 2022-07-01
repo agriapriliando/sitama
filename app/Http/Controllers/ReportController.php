@@ -51,7 +51,7 @@ class ReportController extends Controller
                 $students = Student::with('program','scholarship', 'stat', 'user')->where('program_id', $program_id)->where('scholarship_id', $scholarship_id)->where('stat_id', $stat_id)->orderBy('program_id')->orderBy('nama_rekening')->orderBy('stat_id')->get();
             } elseif ($program_id != null && $scholarship_id != null && $stat_id == null) {
                 $students = Student::with('program','scholarship', 'stat', 'user')->where('scholarship_id', $scholarship_id)->where('scholarship_id', $scholarship_id)->orderBy('program_id')->orderBy('nama_rekening')->orderBy('stat_id')->get();
-            } elseif ($program_id != null && $scholarship_id == null && $stat_id = null) {
+            } elseif ($program_id != null && $scholarship_id == null && $stat_id == null) {
                 $students = Student::with('program','scholarship', 'stat', 'user')->where('program_id', $program_id)->orderBy('program_id')->orderBy('nama_rekening')->orderBy('stat_id')->get();
             } elseif ($program_id == null && $scholarship_id == null && $stat_id != null) {
                 $students = Student::with('program','scholarship', 'stat', 'user')->where('stat_id', $stat_id)->orderBy('program_id')->orderBy('nama_rekening')->orderBy('stat_id')->get();
@@ -62,7 +62,7 @@ class ReportController extends Controller
             } elseif ($program_id == null && $scholarship_id != null && $stat_id == null) {
                 $students = Student::with('program','scholarship', 'stat', 'user')->where('scholarship_id', $scholarship_id)->orderBy('program_id')->orderBy('nama_rekening')->orderBy('stat_id')->get();
             } else {
-                $students = Student::with('program','scholarship', 'stat', 'user')->where('program_id', $program_id)->orderBy('program_id')->orderBy('nama_rekening')->orderBy('stat_id')->get();
+                return "error database";
             }
         }
         // cek conditional
@@ -123,7 +123,7 @@ class ReportController extends Controller
                 $students = Student::with('program','scholarship', 'stat', 'user')->where('program_id', $program_id)->where('scholarship_id', $scholarship_id)->where('stat_id', $stat_id)->orderBy('program_id')->orderBy('nama_rekening')->orderBy('stat_id')->get();
             } elseif ($program_id != null && $scholarship_id != null && $stat_id == null) {
                 $students = Student::with('program','scholarship', 'stat', 'user')->where('scholarship_id', $scholarship_id)->where('scholarship_id', $scholarship_id)->orderBy('program_id')->orderBy('nama_rekening')->orderBy('stat_id')->get();
-            } elseif ($program_id != null && $scholarship_id == null && $stat_id = null) {
+            } elseif ($program_id != null && $scholarship_id == null && $stat_id == null) {
                 $students = Student::with('program','scholarship', 'stat', 'user')->where('program_id', $program_id)->orderBy('program_id')->orderBy('nama_rekening')->orderBy('stat_id')->get();
             } elseif ($program_id == null && $scholarship_id == null && $stat_id != null) {
                 $students = Student::with('program','scholarship', 'stat', 'user')->where('stat_id', $stat_id)->orderBy('program_id')->orderBy('nama_rekening')->orderBy('stat_id')->get();
@@ -134,7 +134,7 @@ class ReportController extends Controller
             } elseif ($program_id == null && $scholarship_id != null && $stat_id == null) {
                 $students = Student::with('program','scholarship', 'stat', 'user')->where('scholarship_id', $scholarship_id)->orderBy('program_id')->orderBy('nama_rekening')->orderBy('stat_id')->get();
             } else {
-                $students = Student::with('program','scholarship', 'stat', 'user')->where('program_id', $program_id)->orderBy('program_id')->orderBy('nama_rekening')->orderBy('stat_id')->get();
+                return "Database Error";
             }
         }
         // cek conditional
