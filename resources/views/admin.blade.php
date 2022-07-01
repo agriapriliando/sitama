@@ -38,12 +38,6 @@
                         <td>
                             {{ $item->user->name }}
                              <br>NIM. {{ $item->nim }}
-                             @if (!empty($item->berkas_one))
-                             <br><a href="{{ url('admin/berkas_one/'.$item->berkas_one) }}" class="badge badge-success"><i class="bi bi-filetype-pdf"></i> Unduh Rekening Koran</a></span>
-                             @endif
-                             @if (!empty($item->berkas_two))
-                             <br><a href="{{ url('admin/berkas_two/'.$item->berkas_two) }}" class="badge badge-success"><i class="bi bi-filetype-pdf"></i> Unduh Buku Rekening</a></span>
-                             @endif
                         </td>
                         <td>{{ $item->program->name }}</td>
                         <td>{{ $item->scholarship->name }}<br><span class="badge badge-warning">Rp{{ number_format($item->scholarship->nominal,0,",",".") }}</span> <span class="badge badge-success">{{ $item->stat->name }}</span></td>
@@ -53,7 +47,7 @@
                             <span class="badge badge-danger">Data Belum Lengkap</span><br>
                             @endif
                             @if (!empty($item->berkas_one))
-                            <br><a href="{{ url('admin/berkas_one/'.$item->berkas_one) }}" class="badge badge-success"><i class="bi bi-filetype-pdf"></i> Unduh Rekening Koran</a></span>
+                            <a href="{{ url('admin/berkas_one/'.$item->berkas_one) }}" class="badge badge-success"><i class="bi bi-filetype-pdf"></i> Unduh Rekening Koran</a></span>
                             @endif
                             @if (!empty($item->berkas_two))
                             <br><a href="{{ url('admin/berkas_two/'.$item->berkas_two) }}" class="badge badge-success"><i class="bi bi-filetype-pdf"></i> Unduh Buku Rekening</a></span>
