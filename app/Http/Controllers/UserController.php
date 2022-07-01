@@ -59,7 +59,7 @@ class UserController extends Controller
 
         User::create([
             'name' => $name,
-            'username' => $request->username,
+            'username' => Str::of($request->username)->lower(),
             'email' => $request->email,
             'password' => $password,
             'role' => 'adm',
@@ -118,7 +118,7 @@ class UserController extends Controller
 
         $user->update([
             'name' => $name,
-            'username' => $request->username,
+            'username' => Str::of($request->username)->lower(),
             'email' => $request->email,
             'password' => $password,
             'check' => $request->check,
@@ -135,7 +135,11 @@ class UserController extends Controller
      */
     public function destroy(User $user)
     {
-        $user->delete();
-        return redirect('admin/users')->with('status','Akun <b>'.$user->name.'</b> Berhasil Dihapus');
+        if ($user->role == "adm") {
+            $user->delete();
+            return redirect('admin/users')->with('status','Akun <b>'.$user->name.'</b> Berhasil Dihapus');
+        } else {
+            return redirect('admin/users')->with('status','Akun Tidak Bisa Dihapus');
+        }
     }
 }
