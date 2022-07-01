@@ -85,15 +85,15 @@ class GranteeController extends Controller
                 'no_rekening' => 'required|numeric',
                 'alamat' => 'required',
                 'no_hp' => 'required|numeric',
-                'berkas_one' => 'file|max:512|mimes:pdf',
-                'berkas_two' => 'file|max:512|mimes:pdf',
-                'foto' => 'file|max:512|mimes:jpg,jpeg',
+                'berkas_one' => 'file|max:800|mimes:pdf',
+                'berkas_two' => 'file|max:800|mimes:pdf',
+                'foto' => 'file|max:800|mimes:jpg,jpeg',
             ],
             [
                 'berkas_one.mimes' => "Tipe File Harus PDF",
-                'berkas_one.size' => "Besar File Maksimal 512KB",
+                'berkas_one.size' => "Besar File Maksimal 800KB",
                 'berkas_two.mimes' => "Tipe File Harus PDF",
-                'berkas_two.size' => "Besar File Maksimal 512KB",
+                'berkas_two.size' => "Besar File Maksimal 800KB",
             ]
         );
         $name_rep = Str::replace(' ','_',session()->get('name'));

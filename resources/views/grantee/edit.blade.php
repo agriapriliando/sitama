@@ -260,7 +260,7 @@
                                     <div class="card-body">
                                         <div class="row">
                                             <div class="col-12">
-                                                <p class="h5 text-dark">Upload Berkas <span class="badge badge-warning">File Wajib PDF Ukuran maksimal 500KB</span></p>
+                                                <p class="h5 text-dark">Upload Berkas <span class="badge badge-warning">File Wajib PDF Ukuran maksimal 800KB</span></p>
                                             </div>
                                             <hr />
                                             <div class="col-md-6 col-11">
