@@ -22,7 +22,7 @@ class GranteeController extends Controller
         $akun = User::where('id', $student_id)->first();
         $student = Student::where('user_id', $student_id)->first();
         $students = Student::with('user','program','stat','scholarship')->get();
-        $notices = Notice::where('title','!=','Pendaftaran')->where('title','!=','Persyaratan')->where('title','!=','Narahubung')->limit(4)->get();
+        $notices = Notice::where('title','!=','Pendaftaran')->where('title','!=','Persyaratan')->where('title','!=','Narahubung')->orderByDesc('updated_at')->limit(5)->get();
 
         //cek kelengkapan data formulir
         $cekdata[] = $student->bank;

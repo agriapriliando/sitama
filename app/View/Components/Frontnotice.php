@@ -24,7 +24,7 @@ class Frontnotice extends Component
      */
     public function render()
     {
-        $notices = Notice::orderByDesc('created_at')->where('title','!=','Persyaratan')->where('title','!=','Pendaftaran')->where('title','!=','Narahubung')->limit(4)->get();
+        $notices = Notice::orderByDesc('created_at')->where('title','!=','Persyaratan')->where('title','!=','Pendaftaran')->where('title','!=','Narahubung')->orderByDesc('updated_at')->limit(5)->get();
         return view('components.frontnotice', compact('notices'));
     }
 }
