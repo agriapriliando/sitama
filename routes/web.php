@@ -34,7 +34,7 @@ Route::middleware('role:mhs')->group(function() {
     Route::get('beasiswa', [GranteeController::class, 'index']);
     Route::get('beasiswa/update', [GranteeController::class, 'edit']);
     Route::patch('beasiswa/update', [GranteeController::class, 'update']);
-    Route::get('download/{path}', [GranteeController::class, 'download']);
+    Route::get('download/{jenis_dok}/{path}', [GranteeController::class, 'download']);
     Route::get('beasiswa/akun', [GranteeController::class, 'akun']);
     Route::patch('beasiswa/akun', [GranteeController::class, 'akunupdate']);
 });

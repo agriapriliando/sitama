@@ -9,7 +9,7 @@
                 <p class="text-dark text-center">Hai <b>{{ session()->get('name') }} - Anda adalah Penerima Beasiswa</b> <a href="{{ url('logout') }}" class="badge badge-danger">Logout</a></p>
             </div>
             <div class="col-12">
-                <div class="alert {{ $count == 5 ? 'bg-success text-dark' : 'bg-danger text-light' }}" role="alert">
+                <div class="alert {{ $count == 6 ? 'bg-success text-dark' : 'bg-danger text-light' }}" role="alert">
                     @if (session('status'))
                     <h4 class="alert-heading text-light">{{ session('status') }}</h4>
                     @endif
@@ -267,7 +267,7 @@
                                                 <div class="form-group mb-3">
                                                     <label>Rekening Koran
                                                         @if ($student->berkas_one != null)
-                                                        <a target="_blank" href="{{ url('download/'.$student->berkas_one) }}" class="badge badge-success">
+                                                        <a target="_blank" href="{{ url('download/berkas_one/'.$student->berkas_one) }}" class="badge badge-success">
                                                             Berkas Tersedia | Download
                                                         </a>
                                                         @else
@@ -281,9 +281,22 @@
                                                     <div id="alert-alert" class="alert alert-warning">{{ $message }}</div>
                                                     @enderror
                                                 </div>
-                                                <div class="form-group mb-3 d-none">
-                                                    <label>Pakta Integritas <a href="#" class="badge badge-success">Download Berkas</a></label>
-                                                    <input name="" type="file" class="border form-control-file">
+                                                <div class="form-group mb-3">
+                                                    <label>Buku Rekening
+                                                        @if ($student->berkas_two != null)
+                                                        <a target="_blank" href="{{ url('download/berkas_two/'.$student->berkas_two) }}" class="badge badge-success">
+                                                            Berkas Tersedia | Download
+                                                        </a>
+                                                        @else
+                                                        <a href="#" class="badge badge-danger">
+                                                            Berkas Belum Diupload
+                                                        </a>
+                                                        @endif
+                                                    </label>
+                                                    <input name="berkas_two" type="file" class="border form-control-file @error('berkas_two') is-invalid @enderror">
+                                                    @error('berkas_two')
+                                                    <div id="alert-alert" class="alert alert-warning">{{ $message }}</div>
+                                                    @enderror
                                                 </div>
                                                 <div class="form-group mb-3 d-none">
                                                     <label>Rekening Koran <a href="#" class="badge badge-success">Download Berkas</a></label>
@@ -299,7 +312,7 @@
                                                     <label>Rekening Koran <a href="#" class="badge badge-success">Download Berkas</a></label>
                                                     <input name="" type="file" class="border form-control-file">
                                                 </div>
-                                                <div class="form-group {{ $count == 5 ? 'bg-success text-dark' : 'bg-danger text-light' }} rounded-lg pt-1">
+                                                <div class="form-group {{ $count == 6 ? 'bg-success text-dark' : 'bg-danger text-light' }} rounded-lg pt-1">
                                                     <p class="text-center text-light">Update Data Terakhir pada {{ date_format($student->updated_at,"d-m-Y H:i") }} WIB<br>
                                                         <span>{{ $status_lengkap }}</span>
                                                     </p>

@@ -5,7 +5,7 @@
     <div class="row p-3 bg-light rounded-lg">
         <div class="col-12 p-2 rounded-lg">
             <p class="text-dark text-center">Hai <b>{{ session()->get('name') }} - Anda adalah Penerima Beasiswa</b> <a href="{{ url('logout') }}" class="badge badge-danger">Logout</a></p>
-            @if ($count != 5)
+            @if ($count != 6)
             <p class="bg-danger text-light p-2 rounded-lg text-center">Anda Belum Perbaharui Data klik Tombol<br>
                 <a class="text-light" style="text-decoration: underline;" href="{{ url('beasiswa/update') }}">Perbaharui Data</a>
             </p>

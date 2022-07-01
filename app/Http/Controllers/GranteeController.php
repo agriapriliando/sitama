@@ -30,13 +30,16 @@ class GranteeController extends Controller
         $cekdata[] = $student->alamat;
         $cekdata[] = $student->no_hp;
         $cekdata[] = $student->berkas_one;
+        $cekdata[] = $student->berkas_two;
 
         // return $cekdata;
         $cekdata = array_filter($cekdata);
         $count = count($cekdata);
         // return $count;
-        if ($count == 5) {
+        if ($count == 6) {
             $status_lengkap = "Terima Kasih, Anda Sudah Melengkapi Data secara Lengkap";
+        } elseif ($student->berkas_one == null || $student->berkas_two == null) {
+            $status_lengkap = "Data Belum Lengkap, Upload Berkas Belum Lengkap";
         } else {
             $status_lengkap = "Anda Belum Memperbaharui Data";
         }
@@ -56,15 +59,18 @@ class GranteeController extends Controller
         $cekdata[] = $student->alamat;
         $cekdata[] = $student->no_hp;
         $cekdata[] = $student->berkas_one;
+        $cekdata[] = $student->berkas_two;
 
         // return $cekdata;
         $cekdata = array_filter($cekdata);
         $count = count($cekdata);
         // return $count;
-        if ($count == 5) {
+        if ($count == 6) {
             $status_lengkap = "Terima Kasih, Anda Sudah Melengkapi Data secara Lengkap";
+        } elseif ($student->berkas_one == null || $student->berkas_two == null) {
+            $status_lengkap = "Data Belum Lengkap, Upload Berkas Belum Lengkap";
         } else {
-            $status_lengkap = "Data Anda Belum Lengkap !!!";
+            $status_lengkap = "Data Anda Belum Lengkap";
         }
         
         return view('grantee.edit', compact('akun','student', 'status_lengkap', 'count'));
@@ -80,11 +86,14 @@ class GranteeController extends Controller
                 'alamat' => 'required',
                 'no_hp' => 'required|numeric',
                 'berkas_one' => 'file|max:512|mimes:pdf',
+                'berkas_two' => 'file|max:512|mimes:pdf',
                 'foto' => 'file|max:512|mimes:jpg,jpeg',
             ],
             [
                 'berkas_one.mimes' => "Tipe File Harus PDF",
                 'berkas_one.size' => "Besar File Maksimal 512KB",
+                'berkas_two.mimes' => "Tipe File Harus PDF",
+                'berkas_two.size' => "Besar File Maksimal 512KB",
             ]
         );
         $name_rep = Str::replace(' ','_',session()->get('name'));
@@ -99,14 +108,21 @@ class GranteeController extends Controller
                 'foto' => $name_img,
             ]);
         }
+        // cek field berkas one rek_koran
         if ($request->file('berkas_one')) {
             $berkas_one = $name_lower.'_koran_'.date("dmyHi").'.'.$request->file('berkas_one')->extension();
         } else {
             $berkas_one = "";
         }
+        // cek field berkas two rek_buku
+        if ($request->file('berkas_two')) {
+            $berkas_two = $name_lower.'_buku_'.date("dmyHi").'.'.$request->file('berkas_two')->extension();
+        } else {
+            $berkas_two = "";
+        }
         // return $berkas_one;
 
-        DB::transaction(function () use ($request, $berkas_one) {
+        DB::transaction(function () use ($request, $berkas_one, $berkas_two) {
             User::where('id', session()->get('id'))->update([
                 'email' => $request->email,
             ]);
@@ -115,12 +131,21 @@ class GranteeController extends Controller
                     'password' => bcrypt($request->password),
                 ]);
             }
+            // upload berkas one rek_koran
             if (!empty($request->berkas_one)) {
                 Storage::delete('rek_koran/'.$berkas_one);
                 $request->file('berkas_one')->storeAs('rek_koran',$berkas_one, 'local');
                 // Storage::disk('local')->putFile('rekening_koran', $request->file('berkas_one'));
                 Student::where('user_id', session()->get('id'))->update([
                     'berkas_one' => $berkas_one,
+                ]);
+            }
+            // upload berkas two rek_buku
+            if (!empty($request->berkas_two)) {
+                Storage::delete('rek_buku/'.$berkas_two);
+                $request->file('berkas_two')->storeAs('rek_buku',$berkas_two, 'local');
+                Student::where('user_id', session()->get('id'))->update([
+                    'berkas_two' => $berkas_two,
                 ]);
             }
             Student::where('user_id', session()->get('id'))->update([
@@ -136,9 +161,13 @@ class GranteeController extends Controller
         return redirect('beasiswa/update')->with('status', 'Data Berhasil Diperbaharui');
     }
 
-    public function download($path)
+    public function download($jenis_dok,$path)
     {
-        return Storage::download('rek_koran/'.$path);
+        if ($jenis_dok == "berkas_one") {
+            return Storage::download('rek_koran/'.$path);
+        } elseif ($jenis_dok == "berkas_two") {
+            return Storage::download('rek_buku/'.$path);
+        }
     }
 
     public function akun()
