@@ -152,17 +152,19 @@
                         <td>{{ $item->name }} <br><span class="badge badge-warning">username : {{ $item->username }}</span></td>
                         <td>{{ $item->email ? $item->email : "Email belum diisi" }}</td>
                         <td>
+                            @if ($item->id != session()->get('id'))
                             <a href="{{ url('admin/users/'.$item->id.'/edit') }}"
-                                class="d-inline btn btn-warning btn-sm mx-1 {{ $item->id == session()->get('id') ? 'disabled' : null }}" style="display: none">
+                                class="d-inline btn btn-warning btn-sm mx-1" style="display: none">
                                 <i class="bi bi-pencil-fill"></i>
                             </a>
                             <form class="d-inline" action="{{ url('admin/users/'.$item->id) }}" method="POST">
                                 @method('DELETE')
                                 @csrf
-                                <button type="submit" class="btn btn-danger btn-sm {{ $item->id == session()->get('id') ? 'disabled' : null }}"
+                                <button type="submit" class="btn btn-danger btn-sm"
                                     onclick="return confirm('Yakin ingin Hapus Data?')"><i
                                         class="bi bi-trash-fill"></i></button>
                             </form>
+                            @endif
                         </td>
                     </tr>
 
