@@ -290,7 +290,7 @@ class StudentController extends Controller
         DB::transaction(function () use ($student, $student_id) {
             Storage::disk('public')->delete('foto/'.$student->foto);
             Storage::delete('rek_koran/'.$student->berkas_one);
-            Storage::delete('rek_koran/'.$student->berkas_two);
+            Storage::delete('rek_buku/'.$student->berkas_two);
             $student->delete();
             $user = User::find($student_id);
             $user->delete();

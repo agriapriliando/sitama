@@ -45,6 +45,7 @@
                     <a class="dropdown-item" href="{{ url('admin/programs') }}">Daftar Program Studi</a>
                     <a class="dropdown-item" href="{{ url('admin/scholarships') }}">Jenis Beasiswa</a>
                     <a class="dropdown-item" href="{{ url('admin/stats') }}">Jenis Status Mahasiswa</a>
+                    <a class="dropdown-item" href="{{ url('admin/resetberkas') }}">Reset Berkas</a>
                     <div class="dropdown-divider"></div>
                     <a class="dropdown-item" href="{{ url('admin/users') }}">Daftar Akun Administrator</a>
                 </div>

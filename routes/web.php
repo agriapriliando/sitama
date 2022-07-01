@@ -9,6 +9,7 @@ use App\Http\Controllers\LoginController;
 use App\Http\Controllers\NoticeController;
 use App\Http\Controllers\ProgramController;
 use App\Http\Controllers\ReportController;
+use App\Http\Controllers\ResetberkasController;
 use App\Http\Controllers\ScholarshipController;
 use App\Http\Controllers\StatController;
 use App\Http\Controllers\StudentController;
@@ -72,6 +73,10 @@ Route::middleware('role:adm')->group(function() {
     // Download Controller
     Route::get('admin/{jenis_dok}/{file}', [DownloadController::class, 'index']);
     // Route::get('alldownload', [DownloadController::class, 'download']);
+
+    // Resetberkas Controller
+    Route::get('admin/resetberkas/', [ResetberkasController::class, 'daftarmhs']);
+    Route::patch('admin/resetberkas/{id}', [ResetberkasController::class, 'resetberkas']);
 });
 
 
