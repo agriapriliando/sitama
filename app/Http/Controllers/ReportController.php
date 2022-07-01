@@ -151,19 +151,19 @@ class ReportController extends Controller
         // return ($report_version['report_version'] == "keuangandua");
         if ($report_version['report_version'] == "fakultasone") {
             $pdf = \PDF::loadView('admin.report.one', compact('students'))->setPaper('a4', 'landscape')->setWarnings(false);
-            return $pdf->download(date("dmyHi").'V1.pdf');
+            return $pdf->download('sitama'.date("dmyHi").'V1.pdf');
         } elseif ($report_version['report_version'] == "fakultastwo") {
             $pdf = \PDF::loadView('admin.report.two', compact('students'))->setPaper('a4', 'landscape')->setWarnings(false);
-            return $pdf->download(date("dmyHi").'V2.pdf');
+            return $pdf->download('sitama'.date("dmyHi").'V2.pdf');
         } elseif ($report_version['report_version'] == "keuanganone") {
             $pdf = \PDF::loadView('admin.report.three', compact('students'))->setPaper('a4', 'landscape')->setWarnings(false);
-            return $pdf->download(date("dmyHi").'V3.pdf');
+            return $pdf->download('sitama'.date("dmyHi").'V3.pdf');
         } elseif ($report_version['report_version'] == "keuangantwo") {
             $pdf = \PDF::loadView('admin.report.four', compact('students'))->setPaper('a4', 'landscape')->setWarnings(false);
-            return $pdf->download(date("dmyHi").'V4.pdf');
+            return $pdf->download('sitama'.date("dmyHi").'V4.pdf');
         } elseif ($report_version['report_version'] == "monitoring") {
             $pdf = \PDF::loadView('admin.report.four', compact('students'))->setPaper('a4', 'landscape')->setWarnings(false);
-            return $pdf->download(date("dmyHi").'monitoring.pdf');
+            return $pdf->download('sitama'.date("dmyHi").'monitoring.pdf');
             return view('admin.report.monitoring', compact('students'));
         }
 
