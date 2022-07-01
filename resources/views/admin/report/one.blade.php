@@ -28,7 +28,7 @@ date_default_timezone_set("Asia/Jakarta");
             </div>
             <div class="col-12">
                 <p class="h5 text-center">DAFTAR PENERIMA BEASISWA</p>
-                <p class="h5 text-center">INSTITUT AGAMA KRISTEN NEGERI (IAKN) PALANGKA RAYA TAHUN 2021</p>
+                <p class="h5 text-center">INSTITUT AGAMA KRISTEN NEGERI (IAKN) PALANGKA RAYA TAHUN {{ date("Y") }}</p>
             </div>
         </div>
         <!-- start table first -->

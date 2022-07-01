@@ -21,14 +21,14 @@
 date_default_timezone_set("Asia/Jakarta");
 ?>
 <body>
-    <div class="container">
+    <div class="">
         <div class="row mt-3">
             <div class="col-12">
                 <p class="font-italic">Dicetak oleh {{ session()->get('name') }} pada {{ date("d-m-Y H:i") }} WIB</p>
             </div>
             <div class="col-12">
                 <p class="h5 text-center">DAFTAR PENERIMA BEASISWA</p>
-                <p class="h5 text-center">INSTITUT AGAMA KRISTEN NEGERI (IAKN) PALANGKA RAYA TAHUN 2021</p>
+                <p class="h5 text-center">INSTITUT AGAMA KRISTEN NEGERI (IAKN) PALANGKA RAYA TAHUN {{ date("Y") }}</p>
             </div>
         </div>
         <!-- start table first -->
@@ -36,9 +36,9 @@ date_default_timezone_set("Asia/Jakarta");
             <thead>
                 <tr>
                     <th>No</th>
-                    <th>Nama</th>
+                    <th>Nama | Status /<br>Nama Rekening</th>
                     <th>NIM</th>
-                    <th>Prodi</th>
+                    <th>Prodi /<br>Jenis Beasiswa</th>
                     <th>IPK</th>
                 </tr>
             </thead>
@@ -55,8 +55,8 @@ date_default_timezone_set("Asia/Jakarta");
                         @endif
                     </td>
                     <td>{{ $item->nim }}</td>
-                    <td>{{ $item->program->jenjang }} {{ $item->program->name }}</td>
-                    <td>{{ $item->IPK }}</td>
+                    <td>{{ $item->program->jenjang }} {{ $item->program->name }} <br>{{ $item->scholarship->name }}</td>
+                    <td>{{ $item->ipk }}</td>
                 </tr>
                 @endforeach
             </tbody>

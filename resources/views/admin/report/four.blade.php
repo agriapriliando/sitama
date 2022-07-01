@@ -21,7 +21,7 @@
 date_default_timezone_set("Asia/Jakarta");
 ?>
 <body>
-    <div class="container">
+    <div class="">
         <div class="row mt-3">
             <div class="col-12">
                 <p class="font-italic">Dicetak oleh {{ session()->get('name') }} pada {{ date("d-m-Y H:i") }} WIB</p>
