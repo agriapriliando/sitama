@@ -48,7 +48,7 @@ class StudentController extends Controller
     public function store(StudentRequest $request)
     {
         $request->validate([
-            'name' => 'required|unique:users',
+            'name' => 'required',
             'username' => 'required|numeric|unique:users',
             'email' => 'nullable|email|unique:users',
             'password' => 'required'
@@ -183,7 +183,7 @@ class StudentController extends Controller
     public function update(StudentRequest $request, Student $student)
     {
         $request->validate([
-            'name' => 'required|unique:users,name,'.$student->user->id,
+            'name' => 'required',
             'username' => 'required|numeric|unique:users,username,'.$student->user->id,
             'email' => 'nullable|email|unique:users,email,'.$student->user->id,
         ],[
