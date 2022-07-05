@@ -333,7 +333,7 @@
                                                     </div>
                                                 </div>
                                                 <div class="row">
-                                                    <div class="col">
+                                                    <div class="col-12">
                                                         <div class="form-group">
                                                             <label>IPK</label><small class="text-muted"> - Indeks Prestasi Kumulatif</small>
                                                             @if ($student->ipk == 0 || $student->ipk == null)
@@ -343,13 +343,25 @@
                                                             @endif
                                                         </div>
                                                         <div class="form-group">
-                                                            <label for="">Catatan</label>
+                                                            <label>Catatan</label>
                                                             <small class="form-text text-muted pb-2 mt-0 pt-0">Keterangan tertentu</small>
                                                                 <textarea placeholder="Contoh : Aktif-Mutasi sejak tahun akademik 2021 Ganjil melanjutkan NIM 90909090 , scan rekening koran tidak terbaca, belum mengumpulkan berkas fisik" name="note" rows="3"
                                                                 class="form-control @error('note') is-invalid @enderror">{{ old('note', $student->note) }}</textarea>
                                                             @error('note')
                                                             <div id="alert-alert" class="alert alert-danger">{{ $message }}</div>
                                                             @enderror
+                                                        </div>
+                                                        <div class="form-group">
+                                                            <label class="d-block">Foto Mahasiswa</label>
+                                                            @if ($student->foto)
+                                                            <img width="100" src="{{ asset('storage/foto/'.$student->foto) }}" alt="">
+                                                            <div class="mt-2">
+                                                                <a target="_blank" href="{{ asset('storage/foto/'.$student->foto) }}" class="btn btn-sm btn-purple" download><i class="bi bi-cloud-download"></i> Unduh Foto</a>
+                                                            </div>
+                                                            @else
+                                                            <img width="100" src="{{ asset('images/profile_default.jpg') }}" alt="">
+                                                            @endif
+                                                            
                                                         </div>
                                                     </div>
                                                 </div>
