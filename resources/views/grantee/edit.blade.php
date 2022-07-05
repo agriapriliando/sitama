@@ -259,8 +259,9 @@
                                     data-parent="#accordionExample">
                                     <div class="card-body">
                                         <div class="row">
-                                            <div class="col-12">
-                                                <p class="h5 text-dark">Upload Berkas <span class="badge badge-warning">File Wajib PDF Ukuran maksimal 800KB</span></p>
+                                            <div class="col-12 mb-3">
+                                                <p class="h5 text-dark">Upload Berkas</p>
+                                                <div class="badge badge-warning" style="font-size: 16px">File Wajib PDF maksimal 800KB</div>
                                             </div>
                                             <hr />
                                             <div class="col-md-6 col-11">
