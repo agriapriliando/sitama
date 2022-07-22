@@ -2,9 +2,13 @@
     {{-- navbar --}}
     <x-navbar></x-navbar>
 
+    @section('highchartjs')
+    <script src="https://code.highcharts.com/highcharts.js"></script>
+    @endsection
+
     <!-- start daftar tabel mahasiswa -->
     <div class="row p-3 bg-light rounded-lg">
-        <div class="col">
+        <div class="col-12 d-none">
             <div class="row mb-2">
                 <div class="col-12">
                     <p class="h3 text-dark judul-daftar-mahasiswa">Daftar Seluruh Mahasiswa Penerima Beasiswa</p>
@@ -68,7 +72,122 @@
                 </tbody>
             </table>
         </div>
+        <div class="col-12">
+            <div id="container" style="width:100%; height:400px;"></div>
+        </div>
     </div>
     <!-- end daftar tabel mahasiswa -->
+
+    @section('highchartscript')
+    <script src="https://code.highcharts.com/modules/exporting.js"></script>
+    <!-- optional -->
+    <script src="https://code.highcharts.com/modules/offline-exporting.js"></script>
+    <script src="https://code.highcharts.com/modules/export-data.js"></script>
+    <script src="https://code.highcharts.com/modules/accessibility.js"></script>
+    <script>
+        // generate tahun akademik otomatis
+        function tahunakademik(startYear) {
+            var currentYear = new Date().getFullYear(), years = [];
+            startYear = startYear || 2020;
+            while (startYear <= currentYear) {
+                yeartambah = startYear++;
+                years.push(yeartambah+'01');
+                years.push(yeartambah+'02');
+            }
+            return years;
+        }
+        console.log(tahunakademik(2015));
+
+        // untuk tanggal di title
+        function formatDate() {
+            const namaHari = ["Minggu", "Senin", "Selasa", "Rabu", "Kamis", "Jumat", "Sabtu"];
+            var d = new Date(),
+                month = '' + (d.getMonth() + 1),
+                day = '' + d.getDate(),
+                year = d.getFullYear(),
+                hour = d.getHours(),
+                minutes = d.getMinutes();
+
+            if (month.length < 2)
+                month = '0' + month;
+            if (day.length < 2)
+                day = '0' + day;
+
+            let hari = namaHari[d.getDay()];
+            var tanggal = [day, month, year].join('-');
+            var waktu = [hour, minutes].join(':');
+
+            return hari + ', ' + tanggal + ' ' + waktu;
+        }
+
+        console.log(formatDate());
+        Highcharts.chart('container', {
+            chart: {
+                type: 'bar'
+            },
+            title: {
+                text: 'Jumlah Penerima Beasiswa</br>IAKN Palangka Raya'
+            },
+            subtitle: {
+                text: 'Source: SITAMA per <span class="font-weight-bold">' + formatDate() + '</span>'
+            },
+            xAxis: {
+                categories: ['Program Studi'],
+                // crosshair: true,
+                // title: {
+                //     text: 'Jumlah'
+                // }
+            },
+            yAxis: {
+                // min: 2.50,
+                // max: 3.30,
+                title: {
+                    text: 'Jumlah Mahasiswa'
+                }
+            },
+            tooltip: {
+                headerFormat: '<span style="font-size:10px">{point.key}</span><table><tr><td colspan="2">Rerata IPS</td></tr>',
+                pointFormat: '<tr><td style="color:{series.color};padding:0">{series.name}: </td>' +
+                    '<td style="padding:0"><b>{point.y:.0f} Orang</b></td></tr>',
+                // pointFormat: '<tr><td style="color:{series.color};padding:0">{series.name}: </td>' +
+                //     '<td style="padding:0"><b>{point.y:.2f}</b></td></tr>',
+                footerFormat: '</table>',
+                shared: true,
+                useHTML: true
+            },
+            plotOptions: {
+                column: {
+                    pointPadding: 1,
+                    borderWidth: 0
+                }
+            },
+            series:
+                <?php echo $dataPoints; ?>
+            ,
+            // series: [{
+            //     name: 'Teologi Kristen',
+            //     data: [164]
+
+            // }, {
+            //     name: 'Kepemimpinan Kristen',
+            //     data: [88]
+
+            // }, {
+            //     name: 'Pastoral Konseling',
+            //     data: [20]
+            // }, {
+            //     name: 'Psikologi Kristen',
+            //     data: [22]
+            // }],
+            // exporting: {
+            //     buttons: {
+            //         contextButton: {
+            //             menuItems: ['downloadPNG', 'downloadJPEG']
+            //         }
+            //     }
+            // }
+        });
+    </script>
+    @endsection
 
 </x-layout>
