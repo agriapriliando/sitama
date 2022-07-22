@@ -146,7 +146,7 @@
                 }
             },
             tooltip: {
-                headerFormat: '<span style="font-size:10px">{point.key}</span><table><tr><td colspan="2">Rerata IPS</td></tr>',
+                headerFormat: '<span style="font-size:10px">{point.key}</span><table><tr><td colspan="2">Jumlah Mahasiswa</td></tr>',
                 pointFormat: '<tr><td style="color:{series.color};padding:0">{series.name}: </td>' +
                     '<td style="padding:0"><b>{point.y:.0f} Orang</b></td></tr>',
                 // pointFormat: '<tr><td style="color:{series.color};padding:0">{series.name}: </td>' +
