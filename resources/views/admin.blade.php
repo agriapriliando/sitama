@@ -8,7 +8,7 @@
 
     <!-- start daftar tabel mahasiswa -->
     <div class="row p-3 bg-light rounded-lg">
-        <div class="col-12 d-none">
+        <div class="col-12 ">
             <div class="row mb-2">
                 <div class="col-12">
                     <p class="h3 text-dark judul-daftar-mahasiswa">Daftar Seluruh Mahasiswa Penerima Beasiswa</p>
@@ -197,7 +197,7 @@
                 type: 'bar'
             },
             title: {
-                text: 'Jumlah Kelengkapan Berkas</br>IAKN Palangka Raya'
+                text: 'Jumlah Penerima Beasiswa yang Sudah Melengkapi Berkas</br>SITAMA IAKN Palangka Raya'
             },
             subtitle: {
                 text: 'Source: SITAMA per <span class="font-weight-bold">' + formatDate() + '</span>'
@@ -232,17 +232,17 @@
                     borderWidth: 0
                 }
             },
-            // series:
-            //     <?php echo $dataPoints; ?>
-            // ,
-            series: [{
-                name: 'Berkas Lengkap',
-                data: [164]
+            series:
+                <?php echo $dataCounts; ?>
+            ,
+            // series: [{
+            //     name: 'Berkas Lengkap',
+            //     data: [164]
 
-            }, {
-                name: 'Berkas Belum Lengkap',
-                data: [88]
-            }],
+            // }, {
+            //     name: 'Berkas Belum Lengkap',
+            //     data: [88]
+            // }],
             // exporting: {
             //     buttons: {
             //         contextButton: {

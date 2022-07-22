@@ -12,9 +12,8 @@ class AdminController extends Controller
     public function index()
     {
         $students = Student::with('user','program','scholarship','stat')->get();
-        // $studentss = DB::table('students')->groupBy('tahun_beasiswa')->get();
         $programs = Program::get();
-
+        // grafik jumlah penerima
         foreach ($programs as $program)
         {
             $dataPoints[] = array(
@@ -23,6 +22,29 @@ class AdminController extends Controller
             );
         }
         $dataPoints = json_encode($dataPoints);
-        return view('admin', compact('students','dataPoints'));
+
+        // grafik kelengkapan berkas
+        foreach ($students as $student)
+        {
+            if (empty($student->berkas_one))
+            {
+                $statusBerkas[] = 'Tidak Lengkap';
+            } else {
+                $statusBerkas[] = 'Lengkap';
+            }
+        }
+        $counts = array_count_values($statusBerkas);
+        foreach ($counts as $key => $value)
+        {
+            $dataCounts[] = array(
+                'name' => $key,
+                'data' => array($value),
+            );
+        }
+        $dataCounts[0] = $dataCounts[0] + array('color' => '#07cc00');
+        $dataCounts[1] = $dataCounts[1] + array('color' => '#FF0000');
+        // return $dataCounts;
+        $dataCounts = json_encode($dataCounts);
+        return view('admin', compact('students','dataPoints','dataCounts'));
     }
 }

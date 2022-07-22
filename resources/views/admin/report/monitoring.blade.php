@@ -59,10 +59,10 @@ date_default_timezone_set("Asia/Jakarta");
                     <td>{{ $loop->iteration }}</td>
                     <td>
                         {{ $item->user->name }} | <span>{{ $item->stat->name }}</span> <br>
-                        @if ($item->name_rekening == null)
+                        @if (empty($item->nama_rekening))
                         <span>Nama sesuai Rekening Belum diisi</span>
                         @else
-                        {{ $item->name_rekening }}
+                        {{ $item->nama_rekening }}
                         @endif
                     </td>
                     <td>{{ $item->nim }}</td>
