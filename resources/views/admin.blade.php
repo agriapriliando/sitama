@@ -8,7 +8,7 @@
 
     <!-- start daftar tabel mahasiswa -->
     <div class="row p-3 bg-light rounded-lg">
-        <div class="col-12 ">
+        <div class="col-12">
             <div class="row mb-2">
                 <div class="col-12">
                     <p class="h3 text-dark judul-daftar-mahasiswa">Daftar Seluruh Mahasiswa Penerima Beasiswa</p>
@@ -72,7 +72,7 @@
                 </tbody>
             </table>
         </div>
-        <div class="col-12 d-none">
+        <div class="col-12">
             <div id="container" style="width:100%; height:400px;"></div>
         </div>
         <div class="col-12">
