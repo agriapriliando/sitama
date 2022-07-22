@@ -8,7 +8,7 @@
 
     <!-- start daftar tabel mahasiswa -->
     <div class="row p-3 bg-light rounded-lg">
-        <div class="col-12">
+        <div class="col-12 d-none">
             <div class="row mb-2">
                 <div class="col-12">
                     <p class="h3 text-dark judul-daftar-mahasiswa">Daftar Seluruh Mahasiswa Penerima Beasiswa</p>
@@ -72,8 +72,11 @@
                 </tbody>
             </table>
         </div>
-        <div class="col-12">
+        <div class="col-12 d-none">
             <div id="container" style="width:100%; height:400px;"></div>
+        </div>
+        <div class="col-12">
+            <div id="kelengkapanBerkas" style="width:100%; height:400px;"></div>
         </div>
     </div>
     <!-- end daftar tabel mahasiswa -->
@@ -112,6 +115,8 @@
                 month = '0' + month;
             if (day.length < 2)
                 day = '0' + day;
+            if (hour < 10)
+                hour = '0' + hour;
 
             let hari = namaHari[d.getDay()];
             var tanggal = [day, month, year].join('-');
@@ -179,6 +184,65 @@
             //     name: 'Psikologi Kristen',
             //     data: [22]
             // }],
+            // exporting: {
+            //     buttons: {
+            //         contextButton: {
+            //             menuItems: ['downloadPNG', 'downloadJPEG']
+            //         }
+            //     }
+            // }
+        });
+        Highcharts.chart('kelengkapanBerkas', {
+            chart: {
+                type: 'bar'
+            },
+            title: {
+                text: 'Jumlah Kelengkapan Berkas</br>IAKN Palangka Raya'
+            },
+            subtitle: {
+                text: 'Source: SITAMA per <span class="font-weight-bold">' + formatDate() + '</span>'
+            },
+            xAxis: {
+                categories: [''],
+                // crosshair: true,
+                title: {
+                    text: 'Jenis Kelengkapan Berkas'
+                }
+            },
+            yAxis: {
+                // min: 2.50,
+                // max: 3.30,
+                title: {
+                    text: 'Jumlah Mahasiswa'
+                }
+            },
+            tooltip: {
+                headerFormat: '<span style="font-size:10px">{point.key}</span><table><tr><td colspan="2">Jumlah Mahasiswa</td></tr>',
+                pointFormat: '<tr><td style="color:{series.color};padding:0">{series.name}: </td>' +
+                    '<td style="padding:0"><b>{point.y:.0f} Orang</b></td></tr>',
+                // pointFormat: '<tr><td style="color:{series.color};padding:0">{series.name}: </td>' +
+                //     '<td style="padding:0"><b>{point.y:.2f}</b></td></tr>',
+                footerFormat: '</table>',
+                shared: true,
+                useHTML: true
+            },
+            plotOptions: {
+                column: {
+                    pointPadding: 1,
+                    borderWidth: 0
+                }
+            },
+            // series:
+            //     <?php echo $dataPoints; ?>
+            // ,
+            series: [{
+                name: 'Berkas Lengkap',
+                data: [164]
+
+            }, {
+                name: 'Berkas Belum Lengkap',
+                data: [88]
+            }],
             // exporting: {
             //     buttons: {
             //         contextButton: {
